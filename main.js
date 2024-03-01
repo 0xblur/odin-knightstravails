@@ -15,6 +15,7 @@ class Board extends Map {
 	 */
 	knightMoves(start, end) {
 		const node = this.getNode(start);
+		const possiblePaths = [];
 		const path = [];
 		path.push(node.value);
 		const visited = new ModifiedSet();
@@ -26,9 +27,8 @@ class Board extends Map {
 			const currentNode = queue.shift();
 			const path = queue.shift();
 			if (arraysEqual(currentNode.value, end)) {
-				const shortestPath = [...path, currentNode.value];
-				const message = `You made in in ${shortestPath.length - 1} moves!`;
-				return [shortestPath, message];
+				const pathFound = path;
+				possiblePaths.push(pathFound);
 			}
 			let neighbor = this.getNode(currentNode.next?.value);
 			const currentPath = [...path, neighbor?.value];
