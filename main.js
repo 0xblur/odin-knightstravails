@@ -14,6 +14,7 @@ class Board extends Map {
 	 * this is supposed to give us the shortest path.
 	 */
 	knightMoves(start, end) {
+		//BUG: It does not return the shortest path for all possibilities.
 		const node = this.getNode(start);
 		const possiblePaths = [];
 		const path = [];
