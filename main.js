@@ -35,6 +35,12 @@ class Board extends Map {
 		if (!coordinate) return null;
 		return this.get(`${coordinate}`)?.head;
 	}
+
+	setAdjacents(coordinate, adjacents) {
+		this.set(`${coordinate}`, adjacents);
+	}
+}
+
 class ModifiedSet extends Set {
 	hasCoordinate(coordinate) {
 		return this.has(`${coordinate}`);
