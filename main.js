@@ -9,6 +9,9 @@ class Board extends Map {
 	 * @param {Array} start
 	 * @param {Array} end
 	 * @returns {Array}
+	 *
+	 * knightMoves relies on a Breadth-First-Search algorithm.
+	 * this is supposed to give us the shortest path.
 	 */
 	knightMoves(start, end) {
 		const node = this.getNode(start);
