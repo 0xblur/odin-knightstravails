@@ -26,7 +26,9 @@ class Board extends Map {
 			const currentNode = queue.shift();
 			const path = queue.shift();
 			if (arraysEqual(currentNode.value, end)) {
-				return [...path, currentNode.value];
+				const shortestPath = [...path, currentNode.value];
+				const message = `You made in in ${shortestPath.length - 1} moves!`;
+				return [shortestPath, message];
 			}
 			let neighbor = this.getNode(currentNode.next?.value);
 			const currentPath = [...path, neighbor?.value];
