@@ -5,6 +5,29 @@ class Board extends Map {
 		super();
 		this.mapBoard();
 	}
+	mapBoard() {
+		const coordinates = [];
+		for (let i = 0; i < 8; i++) {
+			for (let j = 0; j < 8; j++) {
+				const coordinate = [i, j];
+				coordinates.push(coordinate);
+			}
+		}
+		for (const coordinate of coordinates) {
+			const adjacentCoordinates = calculateAdjacents(coordinate);
+			const adjacentsList = new List();
+			const head = new Item();
+			head.value = coordinate;
+			adjacentsList.prepend(head);
+			for (const adjacent of adjacentCoordinates) {
+				const item = new Item();
+				item.value = adjacent;
+				adjacentsList.append(item);
+			}
+			this.setAdjacents(coordinate, adjacentsList);
+		}
+	}
+
 class ModifiedSet extends Set {
 	hasCoordinate(coordinate) {
 		return this.has(`${coordinate}`);
