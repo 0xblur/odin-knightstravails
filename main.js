@@ -107,3 +107,6 @@ class ModifiedSet extends Set {
 
 	return cleanAdjacents;
 }
+
+const m = new Board();
+console.log(m.knightMoves([0, 0], [3, 2]));
