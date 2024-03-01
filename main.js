@@ -28,6 +28,10 @@ class Board extends Map {
 		}
 	}
 
+	getNode(coordinate) {
+		if (!coordinate) return null;
+		return this.get(`${coordinate}`)?.head;
+	}
 class ModifiedSet extends Set {
 	hasCoordinate(coordinate) {
 		return this.has(`${coordinate}`);
