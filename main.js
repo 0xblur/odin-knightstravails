@@ -30,12 +30,12 @@ class Board extends Map {
 				const pathFound = path;
 				possiblePaths.push(pathFound);
 			}
-			let neighbor = this.getNode(currentNode.next?.value);
 			const currentPath = [...path, neighbor?.value];
+			let neighbor = currentNode.next;
 			while (neighbor) {
 				if (!visited.hasCoordinate(neighbor.value)) {
-					queue.push(neighbor);
 					queue.push(currentPath);
+					queue.push(this.getNode(neighbor.value));
 					visited.addCoordinate(neighbor.value);
 				}
 				neighbor = neighbor.next;
