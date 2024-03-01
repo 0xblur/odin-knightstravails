@@ -41,7 +41,8 @@ class Board extends Map {
 				neighbor = neighbor.next;
 			}
 		}
-		return null;
+		const message = `You made in in ${possiblePaths[0].length - 1} moves!`;
+		return [...possiblePaths, message];
 
 		function arraysEqual(arr1, arr2) {
 			return JSON.stringify(arr1) === JSON.stringify(arr2);
