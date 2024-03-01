@@ -1,0 +1,17 @@
+{
+  "name": "odin-knightstravails",
+  "module": "main.js",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "immutable": "^5.0.0-beta.5",
+    "linked-list": "^3.1.0",
+    "lodash": "^4.17.21"
+  }
+}
