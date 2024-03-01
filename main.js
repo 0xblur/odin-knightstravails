@@ -1,4 +1,3 @@
-function getAdjacents(coordinate) {
 import { List, Item } from "linked-list";
 class Board extends Map {
 	constructor() {
@@ -85,6 +84,8 @@ class ModifiedSet extends Set {
 		this.add(`${coordinate}`);
 	}
 }
+
+function calculateAdjacents(coordinate) {
 	const [x, y] = coordinate;
 	const adjacents = [
 		[x - 2, y - 1],
