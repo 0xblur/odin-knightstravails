@@ -5,9 +5,45 @@ class Board extends Map {
 		super();
 		this.mapBoard();
 	}
+
+	/**
+	 * @param {Array} start
+	 * @param {Array} end
+	 * @returns {Array}
+	 */
+	knightMoves(start, end) {
+		const node = this.getNode(start);
+		const path = [];
+		path.push(node.value);
+		const visited = new ModifiedSet();
+		visited.addCoordinate(start);
+		const queue = [];
+		queue.push(node);
+		queue.push(path);
+		while (queue.length > 0) {
+			const currentNode = queue.shift();
+			const path = queue.shift();
+			if (arraysEqual(currentNode.value, end)) {
+				return [...path, currentNode.value];
+			}
+			let neighbor = this.getNode(currentNode.next?.value);
+			const currentPath = [...path, neighbor?.value];
+			while (neighbor) {
+				if (!visited.hasCoordinate(neighbor.value)) {
+					queue.push(neighbor);
+					queue.push(currentPath);
+					visited.addCoordinate(neighbor.value);
+				}
+				neighbor = neighbor.next;
+			}
+		}
+		return null;
+
 		function arraysEqual(arr1, arr2) {
 			return JSON.stringify(arr1) === JSON.stringify(arr2);
 		}
+	}
+
 	mapBoard() {
 		const coordinates = [];
 		for (let i = 0; i < 8; i++) {
