@@ -5,6 +5,9 @@ class Board extends Map {
 		super();
 		this.mapBoard();
 	}
+		function arraysEqual(arr1, arr2) {
+			return JSON.stringify(arr1) === JSON.stringify(arr2);
+		}
 	mapBoard() {
 		const coordinates = [];
 		for (let i = 0; i < 8; i++) {
