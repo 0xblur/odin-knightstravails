@@ -42,7 +42,7 @@ class Board extends Map {
 			}
 		}
 		const message = `You made in in ${possiblePaths[0].length - 1} moves!`;
-		return [...possiblePaths, message];
+		return [...possiblePaths, message] || "no path found";
 
 		function arraysEqual(arr1, arr2) {
 			return JSON.stringify(arr1) === JSON.stringify(arr2);
